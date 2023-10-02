@@ -8,6 +8,8 @@ import createClient from './createClient'
 
 import { SSRConfig, UserConfig } from './types'
 
+import { i18nContainer } from './globali18n';
+
 import { i18n as I18NextClient } from 'i18next'
 export {
   Trans,
@@ -15,7 +17,6 @@ export {
   withTranslation,
 } from 'react-i18next'
 
-export let globalI18n: I18NextClient | null = null
 
 export const appWithTranslation = <Props extends NextJsAppProps>(
   WrappedComponent: React.ComponentType<Props>,
@@ -73,7 +74,7 @@ export const appWithTranslation = <Props extends NextJsAppProps>(
         resources,
       }).i18n
 
-      globalI18n = instance
+      i18nContainer.set(() => instance);
 
       return instance
     }, [_nextI18Next, locale, configOverride, ns])
