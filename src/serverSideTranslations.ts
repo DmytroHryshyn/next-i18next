@@ -4,7 +4,7 @@ import path from 'path'
 import { createConfig } from './config/createConfig'
 import createClient from './createClient/node'
 
-import { i18nContainer } from './globalI18n'
+import { i18nContainer } from './globali18n'
 
 import { UserConfig, SSRConfig } from './types'
 import { getFallbackForLng, unique } from './utils'
