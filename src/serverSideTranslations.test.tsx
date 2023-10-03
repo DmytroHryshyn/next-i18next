@@ -20,7 +20,6 @@ jest.mock('fs', () => ({
 const DummyApp = appWithTranslation(() => <div>Hello world</div>)
 
 const props = {
-  pageProps: {
     _nextI18Next: {
       initialLocale: 'en-US',
       userConfig: {
@@ -29,11 +28,7 @@ const props = {
           locales: ['en', 'fr'],
         },
       },
-    },
   } as SSRConfig,
-  router: {
-    locale: 'en',
-  },
 } as any
 
 const renderDummyComponent = () =>
